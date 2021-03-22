@@ -3,7 +3,7 @@
 "use strict";
 
 function pow(x, n) {
-	return x * n;
+	return x ** n;
 }
 
 function add2(n1, n2) {
@@ -13,10 +13,10 @@ function add2(n1, n2) {
 function add(...args) {
 	let count = arguments.length;
 	let sum = 0;
-	for (let i=0; i<count; i++) {
-		sum += arguments[i];		
+	for (let i = 0; i < count; i++) {
+		sum += arguments[i];
 	}
-	
+
 	return sum;
 }
 
@@ -30,6 +30,23 @@ function add(...args) {
 	0 - 59   NC
 */
 function computeGrade(grades) {
-	return "???";
+	let sum = 0, avg = 0;
+	for (let i = 0; i < grades.length; i++) {
+		sum += grades[i];
+	}
+	avg = sum / grades.length;
+	if (avg >= 90) {
+		return "A";
+	}
+	if (avg >= 80 && avg < 90) {
+		return "B";
+	}
+	if (avg >= 70 && avg < 80) {
+		return "C";
+	}
+	if (avg >= 60 && avg < 70) {
+		return "D";
+	}
+	return "NC";
 }
 
