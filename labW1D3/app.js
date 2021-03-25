@@ -13,7 +13,26 @@ Creates an object that contains the following information from the "this" object
 }	
 */
 function analyzer() {
-	return {};
+	let ShortName = 0
+	let cntObj = 0;
+	let output = {};
+	output.numProperties = Object.keys(this).length
+
+	for (let e of Object.keys(this)) {
+		if (e.length < 3) {
+			ShortName++;
+		}
+	}
+	output.cntShortName = ShortName;
+
+	for (let e of Object.values(this)) {
+		if (typeof (e) === "object") {
+			cntObj++;
+		}
+	}
+	output.cntReference = cntObj
+
+	return output;
 }
 
 /* Constructor for a person object
